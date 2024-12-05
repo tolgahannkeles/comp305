@@ -1,0 +1,33 @@
+# i=0 t3
+# sum = 0 t4
+# while(i<s6)
+#	sum+=i
+#	print(i)
+#	i++
+# print(sum)
+
+#getting input
+li a7, 5
+ecall
+add s6, zero, a0 # input
+
+# initializng values
+addi t3, zero, 0 # i
+addi t4, zero, 0 #sum
+loop:
+	blt s6, t3, end # i<s6
+	add t4, t3, t4 # sum+=i
+
+	# printing i
+	li a7, 1
+	addi a0, t3, 0
+	ecall
+	
+	addi t3, t3, 1 # i++
+	j loop
+	
+end:
+	# printing sum
+	li a7, 1
+	addi a0, t4, 0
+	ecall
